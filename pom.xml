@@ -30,7 +30,7 @@
                 <version>1.2</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
