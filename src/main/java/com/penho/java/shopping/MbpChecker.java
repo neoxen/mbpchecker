@@ -65,6 +65,9 @@ public class MbpChecker {
             while (
                     (inputLine = in.readLine()) != null) {
                 if (inputLine.indexOf("priceLarge") != -1) {
+                    inputLine = inputLine.trim();
+                    int indexPoint = inputLine.lastIndexOf(".");
+                    inputLine = inputLine.substring(indexPoint - 5, indexPoint + 3);
                     log.debug(inputLine);
                     //System.out.println(inputLine);
                     break;

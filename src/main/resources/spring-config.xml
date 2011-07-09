@@ -22,14 +22,14 @@
             <value>amazonMbpCheck</value>
         </property>
     </bean>
-    <!--定时器设定起动频率&启动时间我设的是每5秒起动一次 (0 0  4 * * ?每日四点起动....)-->
+    <!--定时器设定起动频率&启动时间 (0 0  4 * * ?每日四点起动....)-->
     <bean id="cronReportTrigger"
           class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail">
             <ref bean="scheduledReportJobDetail"/>
         </property>
         <property name="cronExpression">
-            <value>10,40 * * * * ?</value>
+            <value>10 * * * * ?</value>
         </property>
     </bean>
 </beans>
