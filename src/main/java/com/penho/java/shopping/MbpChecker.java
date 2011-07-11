@@ -44,7 +44,7 @@ public class MbpChecker {
             entity = response.getEntity();
 
             if (entity != null) {
-                entity = new BufferedHttpEntity(entity);
+                //entity = new BufferedHttpEntity(entity);
                 InputStream instream = entity.getContent();
                 printContent(instream);
             }
