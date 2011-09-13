@@ -7,6 +7,8 @@
         <property name="triggers">
             <list>
                 <ref bean="cronReportTrigger"/>
+                <ref bean="cronReportTrigger2"/>
+                <ref bean="cronReportTrigger3"/>
             </list>
         </property>
     </bean>
@@ -22,6 +24,27 @@
             <value>amazonMbpCheck</value>
         </property>
     </bean>
+
+     <bean id="scheduledReportJobDetail2"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="mbpChecker"/>
+        </property>
+        <property name="targetMethod">
+            <value>voteCheck</value>
+        </property>
+    </bean>
+
+    <bean id="scheduledReportJobDetail3"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="mbpChecker"/>
+        </property>
+        <property name="targetMethod">
+            <value>voteRobot</value>
+        </property>
+    </bean>
+
     <!--定时器设定起动频率&启动时间 (0 0  4 * * ?每日四点起动....)-->
     <bean id="cronReportTrigger"
           class="org.springframework.scheduling.quartz.CronTriggerBean">
@@ -29,7 +52,27 @@
             <ref bean="scheduledReportJobDetail"/>
         </property>
         <property name="cronExpression">
-            <value>10 * * * * ?</value>
+            <value>5,15,25,35,45,55 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="cronReportTrigger2"
+          class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="scheduledReportJobDetail2"/>
+        </property>
+        <property name="cronExpression">
+            <value>8,18,28,38,48,58 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="cronReportTrigger3"
+          class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="scheduledReportJobDetail3"/>
+        </property>
+        <property name="cronExpression">
+            <value>2,12,22,32,42,52 * * * * ?</value>
         </property>
     </bean>
 </beans>
