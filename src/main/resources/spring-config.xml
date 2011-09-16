@@ -9,6 +9,7 @@
                 <ref bean="cronReportTrigger"/>
                 <ref bean="cronReportTrigger2"/>
                 <ref bean="cronReportTrigger3"/>
+                <ref bean="cronReportTrigger4"/>
             </list>
         </property>
     </bean>
@@ -45,6 +46,26 @@
         </property>
     </bean>
 
+    <bean id="scheduledReportJobDetail4"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="mbpChecker"/>
+        </property>
+        <property name="targetMethod">
+            <value>voteRobot2</value>
+        </property>
+    </bean>
+
+    <bean id="scheduledReportJobDetail5"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="mbpChecker"/>
+        </property>
+        <property name="targetMethod">
+            <value>voteRobot3</value>
+        </property>
+    </bean>
+
     <!--定时器设定起动频率&启动时间 (0 0  4 * * ?每日四点起动....)-->
     <bean id="cronReportTrigger"
           class="org.springframework.scheduling.quartz.CronTriggerBean">
@@ -52,7 +73,7 @@
             <ref bean="scheduledReportJobDetail"/>
         </property>
         <property name="cronExpression">
-            <value>5,15,25,35,45,55 * * * * ?</value>
+            <value>0,10,20,30,40,50 * * * * ?</value>
         </property>
     </bean>
 
@@ -73,6 +94,26 @@
         </property>
         <property name="cronExpression">
             <value>2,12,22,32,42,52 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="cronReportTrigger4"
+          class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="scheduledReportJobDetail4"/>
+        </property>
+        <property name="cronExpression">
+            <value>5,15,25,35,45,55 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="cronReportTrigger5"
+          class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="scheduledReportJobDetail5"/>
+        </property>
+        <property name="cronExpression">
+            <value>6,16,26,36,46,56 * * * * ?</value>
         </property>
     </bean>
 </beans>

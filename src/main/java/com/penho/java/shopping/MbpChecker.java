@@ -42,15 +42,35 @@ public class MbpChecker {
 
     public void amazonMbpCheck() {
         //mbpCheck("http://www.amazon.cn/gp/product/B004PYEGE8/ref=s9_simh_gw_p147_d0_i1?pf_rd_m=A1AJ19PSB66TGU&pf_rd_s=center-1&pf_rd_r=0M55D7E1T3GNK2YFQN3M&pf_rd_t=101&pf_rd_p=58840952&pf_rd_i=899254051");
-        vote("http://www.xgdj-wh.com/result.asp");
+        //vote("http://www.xgdj-wh.com/result.asp");
+        voteDelegate("http://www.xgdj-wh.com/result.asp","222.172.99.11", 8909);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","59.175.128.43", 80);
     }
 
     public void voteCheck() {
-        voteViaProxy("http://www.xgdj-wh.com/result.asp");
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","123.125.156.92", 82);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","219.147.197.114", 8909);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","221.130.7.93", 80);
+        voteDelegate("http://www.xgdj-wh.com/result.asp","205.213.195.70", 8080);
     }
 
     public void voteRobot(){
-        voteDelegate("http://www.xgdj-wh.com/result.asp", "61.141.33.59", 8909);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp", "202.105.134.74", 8909);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","114.30.47.10", 80);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","222.77.69.210", 3128);
+        voteDelegate("http://www.xgdj-wh.com/result.asp","190.90.118.2", 8080);
+    }
+
+    public void voteRobot2(){
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","72.167.250.203",808 );
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","111.1.32.154", 80);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","218.106.113.245", 8909);
+        voteDelegate("http://www.xgdj-wh.com/result.asp","111.1.32.154", 80);
+    }
+
+    public void voteRobot3(){
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","219.217.13.237",8909);
+        //voteDelegate("http://www.xgdj-wh.com/result.asp","219.147.197.114", 8909);
     }
 
     public static DefaultHttpClient getThreadSafeClient() {
@@ -79,7 +99,7 @@ public class MbpChecker {
             List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();
             nameValuePair.add(new BasicNameValuePair("action", "participate"));
             nameValuePair.add(new BasicNameValuePair("classid", "1"));
-            nameValuePair.add(new BasicNameValuePair("id", "19"));
+            nameValuePair.add(new BasicNameValuePair("id", "6"));
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
             httpPost.setParams(httpParams);
 
